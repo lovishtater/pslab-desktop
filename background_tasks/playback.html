@@ -6,9 +6,15 @@
 	const { LAProcessor } = require('../utils/preProcessor.js');
 	const log = require('electron-log');
 
-	let pyshell = new PythonShell(path.join(__dirname, '/../scripts/playback_bridge.py'), {
-		pythonPath: 'python3',
-	});
+	// For distribution, we bundle everything into an asar archive.
+	const relativePath = (process.env.NODE_ENV === 'production')
+		? '/../../app.asar.unpacked/scripts/bridge.py'
+		: '/../scripts/bridge.py';
+	const pyshell = new PythonShell(
+		path.join(__dirname, relativePath),
+		{ pythonPath: 'python3'	},
+	);
+	log.info('Python spawned:', pyshell && pyshell.command);
 
 	loadBalancer.job(
 		ipcRenderer,
