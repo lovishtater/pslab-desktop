@@ -33,7 +33,9 @@ yarn-debug.log*
 yarn-error.log*
 /.idea
 yarn.lock
-.vscode/
 
 # Deploy keys should never be committed
 deploy_key
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
