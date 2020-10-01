@@ -1,4 +1,4 @@
-# PSLab Desktop
+# PSLab Desktop!
 
 Desktop application for the [Pocket Science Lab (PSlab)](https://pslab.io) open hardware platform.
 
